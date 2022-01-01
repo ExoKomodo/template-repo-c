@@ -1,6 +1,6 @@
-#include <stdio.h>
+#include <app/prelude.h>
 
 int main() {
-	puts("Hello, World!");
+	hello();
 	return 0;
 }
