@@ -12,12 +12,19 @@ services:
     command: bash compose_scripts/test.sh
     volumes:
       - .:/app
-  build:
+  build_all:
     build:
       context: .
-    command: bash compose_scripts/build.sh
+    command: bash compose_scripts/build.sh all
     volumes:
       - .:/app
+  build_template_repo_c:
+    build:
+      context: .
+    command: bash compose_scripts/build.sh template-repo-c
+    volumes:
+      - .:/app
+
   fix_ownership:
     build:
       context: .
