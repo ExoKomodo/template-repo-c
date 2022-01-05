@@ -1,0 +1,12 @@
+{
+  "triggerTaskOnSave.tasks": {
+    "cmake build [template-repo-c]": [
+      "src/include/**/*.h",
+      "src/main.c",
+    ],
+    "cmake configure": [
+      "CMakeLists.txt",
+      "**/CmakeLists.txt",
+    ],
+  },
+}
