@@ -4,9 +4,38 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "cmake build",
+      "label": "cmake build [all]",
       "type": "shell",
-      "command": "cmake --build ${workspaceFolder}/build --target template-repo-c --",
+      "command": "cmake",
+      "args": [
+          "--build",
+          "${workspaceFolder}/build",
+          "--target",
+          "all",
+          "--",
+      ],
+      "problemMatcher": [
+        "$gcc",
+      ],
+      "dependsOn": [
+        "cmake configure",
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true,
+      }
+    },
+    {
+      "label": "cmake build [template-repo-c]",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+          "--build",
+          "${workspaceFolder}/build",
+          "--target",
+          "template-repo-c",
+          "--",
+      ],
       "problemMatcher": [
         "$gcc",
       ],

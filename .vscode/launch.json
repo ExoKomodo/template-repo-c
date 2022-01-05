@@ -11,7 +11,7 @@
       "program": "${workspaceFolder}/build/bin/template-repo-c",
       "args": [],
       "cwd": "${workspaceFolder}",
-      "preLaunchTask": "cmake build",
+      "preLaunchTask": "cmake build [template-repo-c]",
       "miDebuggerPath": "gdb",
     }
   ]
