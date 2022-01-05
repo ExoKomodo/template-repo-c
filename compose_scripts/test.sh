@@ -2,4 +2,4 @@
 
 set -ex
 
-bin/template-repo-c
+./build/bin/template-repo-c
