@@ -1,7 +1,7 @@
 FROM gcc:11
 
 RUN apt update -y
-RUN apt install cmake -y
+RUN apt install -y cmake valgrind
 
 COPY . /app
 

@@ -1,33 +1,26 @@
 version: '3'
 services:
-  configure:
-    build:
-      context: .
-    command: bash compose_scripts/configure.sh
-    volumes:
-      - .:/app
-  test:
-    build:
-      context: .
-    command: bash compose_scripts/test.sh
-    volumes:
-      - .:/app
   build_all:
     build:
       context: .
     command: bash compose_scripts/build.sh all
-    volumes:
-      - .:/app
   build_template_repo_c:
     build:
       context: .
     command: bash compose_scripts/build.sh template-repo-c
-    volumes:
-      - .:/app
-
+  configure:
+    build:
+      context: .
+    command: bash compose_scripts/configure.sh
   fix_ownership:
     build:
       context: .
     command: bash compose_scripts/fix_ownership.sh
-    volumes:
-      - .:/app
+  memory_check:
+    build:
+      context: .
+    command: bash /app/compose_scripts/memory_check.sh
+  test:
+    build:
+      context: .
+    command: bash compose_scripts/test.sh

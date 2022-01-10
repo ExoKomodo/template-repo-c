@@ -13,6 +13,9 @@
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "cmake build [template-repo-c]",
       "miDebuggerPath": "gdb",
+      "osx": {
+        "miDebuggerPath": "lldb-mi",
+      },
     }
   ]
 }

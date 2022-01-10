@@ -1,4 +1,4 @@
-def COMPOSE_ARGS = '--abort-on-container-exit --no-log-prefix'
+def COMPOSE_ARGS = '--build --abort-on-container-exit --no-log-prefix'
 
 pipeline {
 	agent any
@@ -8,12 +8,6 @@ pipeline {
 	}
 
 	stages {
-		stage('CMake Configure') {
-			steps {
-				sh "docker-compose up ${COMPOSE_ARGS} configure"
-			}
-		}
-
 		stage('Build') {
 			steps {
 				sh "docker-compose up ${COMPOSE_ARGS} build_all"
@@ -23,6 +17,12 @@ pipeline {
 		stage('Test') {
 			steps {
 				sh "docker-compose up ${COMPOSE_ARGS} test"
+			}
+		}
+		
+		stage('Memory Check') {
+			steps {
+				sh "docker-compose up ${COMPOSE_ARGS} memory_check"
 			}
 		}
 	}
