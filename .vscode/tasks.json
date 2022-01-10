@@ -9,7 +9,7 @@
       "command": "cmake",
       "args": [
           "--build",
-          "${workspaceFolder}/build",
+          "${workspaceFolder}",
           "--target",
           "all",
           "--",
@@ -31,7 +31,7 @@
       "command": "cmake",
       "args": [
           "--build",
-          "${workspaceFolder}/build",
+          "${workspaceFolder}",
           "--target",
           "template-repo-c",
           "--",
@@ -50,7 +50,12 @@
     {
       "label": "cmake configure",
       "type": "shell",
-      "command": "cmake -B${workspaceFolder}/build",
+      "command": "cmake",
+      "args": [
+        "${workspaceFolder}",
+        "-G",
+        "Unix Makefiles",
+      ],
       "problemMatcher": [
         "$gcc",
       ],
