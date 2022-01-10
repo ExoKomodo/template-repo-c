@@ -20,10 +20,7 @@
       "dependsOn": [
         "cmake configure",
       ],
-      "group": {
-        "kind": "build",
-        "isDefault": true,
-      }
+      "group": "build",
     },
     {
       "label": "cmake build [template-repo-c]",
@@ -53,17 +50,30 @@
       "command": "cmake",
       "args": [
         "${workspaceFolder}",
-	"-DCMAKE_BUILD_TYPE:STRING=Debug",
+        "-DCMAKE_BUILD_TYPE:STRING=Debug",
         "-G",
         "Unix Makefiles",
       ],
       "problemMatcher": [
         "$gcc",
       ],
-      "group": {
-        "kind": "build",
-        "isDefault": true,
-      },
+      "group": "none",
+    },
+    {
+      "label": "cmake clean",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+	      "--build",
+        "${workspaceFolder}",
+	      "--target",
+        "clean",
+        "--",
+      ],
+      "problemMatcher": [
+        "$gcc",
+      ],
+      "group": "none",
     },
   ]
 }
