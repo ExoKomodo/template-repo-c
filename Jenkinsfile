@@ -8,12 +8,6 @@ pipeline {
 	}
 
 	stages {
-		stage('CMake Configure') {
-			steps {
-				sh "docker-compose up ${COMPOSE_ARGS} configure"
-			}
-		}
-
 		stage('Build') {
 			steps {
 				sh "docker-compose up ${COMPOSE_ARGS} build_all"
@@ -23,6 +17,12 @@ pipeline {
 		stage('Test') {
 			steps {
 				sh "docker-compose up ${COMPOSE_ARGS} test"
+			}
+		}
+		
+		stage('Memory Check') {
+			steps {
+				sh "docker-compose up ${COMPOSE_ARGS} memory_check"
 			}
 		}
 	}
